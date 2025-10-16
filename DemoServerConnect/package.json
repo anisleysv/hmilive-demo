@@ -1,0 +1,21 @@
+{
+  "name": "server-connect-api",
+  "version": "1.0.0",
+  "description": "API for IIR server communications",
+  "main": "app.js",
+  "scripts": {
+    "dev": "NODE_ENV=development node app.js",
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "Anisley Saez",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "node-fetch": "^2.7.0",
+    "qrcode-terminal": "^0.12.0"
+  }
+}

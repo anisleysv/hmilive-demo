@@ -1,0 +1,15 @@
+{
+  "internal_server_error": "Internal server error",
+  "missing_name_param": "Missing 'name' parameter in query",
+  "hmi_live_status_error": "hmi-live status error",
+  "hmi_live_structure_error": "hmi-live structure error",
+  "upstream_error": "upstream error",
+  "cannot_reach_hmi_live": "cannot reach hmi-live",
+  "invalid_date_format": "Invalid date format. Expected \"YYYY-MM-DD HH:mm:ss.SSS\" or \"YYYY-MM-DD HH:mm:ss\".",
+  "production_hist_upstream_error": "production-hist upstream error",
+  "logo_upstream_error": "logo upstream error",
+  "scan_failed": "Scan failed",
+  "missing_bearer_token": "Missing bearer token",
+  "auth_not_configured": "Authentication service not configured",
+  "invalid_token": "Invalid token"
+}

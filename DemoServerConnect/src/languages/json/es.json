@@ -1,0 +1,15 @@
+{
+  "internal_server_error": "Error interno del servidor",
+  "missing_name_param": "Falta el parámetro 'name' en la consulta",
+  "hmi_live_status_error": "error de estado de hmi-live",
+  "hmi_live_structure_error": "error de estructura de hmi-live",
+  "upstream_error": "error del upstream",
+  "cannot_reach_hmi_live": "no se puede alcanzar hmi-live",
+  "invalid_date_format": "Formato de fecha inválido. Se esperaba \"YYYY-MM-DD HH:mm:ss.SSS\" o \"YYYY-MM-DD HH:mm:ss\".",
+  "production_hist_upstream_error": "error de upstream de production-hist",
+  "logo_upstream_error": "error de upstream del logo",
+  "scan_failed": "Fallo en el escaneo",
+  "missing_bearer_token": "Falta el token Bearer",
+  "auth_not_configured": "Servicio de autenticación no configurado",
+  "invalid_token": "Token inválido"
+}

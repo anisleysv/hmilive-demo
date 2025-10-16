@@ -1,0 +1,195 @@
+{
+  "version": "HMI_API_v1.0",
+  "branding": {
+    "hostname": null,
+    "logo": {
+      "path": "/assets/img/companyLogo.png",
+      "mime": "image/png",
+      "width": 930,
+      "height": 666,
+      "bgColor": null
+    }
+  },
+  "pages": [
+    {
+      "id": "system-status",
+      "title": "key_system",
+      "sections": [
+        {
+          "id": "system1",
+          "layout": { "component": "SectionBlock", "props": { "cols": 1, "label": "key_module1-status" } },
+          "widgets": [
+            {
+              "component": "GenericCard",
+              "props": {
+                "title": "key_module1",
+                "fields": [
+                    [
+                      "TOHMI_Module1_autoMode",["TOHMI_Module1_Start","TOHMI_Module1_Pause","op_TOHMI_Module1_Start"]],
+                      [{"label":"key_status","tagId":["op_TOHMI_Module1_activeAlarm","TOHMI_Module1_activeWarning","TOHMI_Module1_activeSoftAlarm","TOHMI_Module1_activeAlarm"]},
+                      "TOHMI_Module1_dryRun"
+                    ]
+                 ],
+                "alarms": ["TOHMI_Module1_activeWarning","TOHMI_Module1_activeSoftAlarm","TOHMI_Module1_activeAlarm"]
+              }
+            },
+            {
+              "component": "GenericCard",
+              "props": {
+                "title": "key_robot1",
+                "fields": [
+                    ["TOHMI_R1_servoOn","TOHMI_R1_remoteMode","TOHMI_R1_Position"],
+                    ["TOHMI_R1_currentSpeed","TOHMI_R1_liveCycle"],
+                    ["TOHMI_R1_Timer","TOHMI_R1_dailyPicks"]
+                ],
+              "alarms": ["ALARM_R1_safeDrop","ALARM_R1_productDropped","ALARM_R1_Error","ALARM_R1_ESTOP","ALARM_R1_commLoss"]
+              }
+            },
+            {
+              "component": "GenericCard",
+              "props": {
+                "title": "key_station1",
+                "fields": [
+                    [{"span":2,"label":"key_recipe-assigned","tagId":"Recipe_Feedpoint1_projectName"},"TOHMI_Station1_totalStats"],
+                    [{"label":"key_pallet-present","tagId":"WARNING_Station1_containerAbsent"},{"label":"key_pallet-done","tagId":"TOHMI_Station1_jobsDone"}],
+                    [{"label":"key_layers","currentTagId":"Recipe_Feedpoint1_currentLayer","totalTagId":"Recipe_Feedpoint1_totalLayers"},
+                      {"label":"key_jobs","currentTagId":"TOHMI_Feedpoint1_currentJob","totalTagId":"Recipe_Feedpoint1_totalDropsAmount"}],
+                    ["Recipe_Feedpoint1_layerSeparator","Recipe_Feedpoint1_pickProductsAmount","Recipe_Feedpoint1_dropProductsAmount"]
+                ],
+              "alarms":  ["WARNING_Station1_containerAbsent","WARNING_Station1_removeContainer","ALARM_Station1_removeContainer","ALARM_Station1_containerAbsent"]
+              }
+            }
+          
+          ]
+        }
+      
+          ]
+        },
+        {
+      "id": "alarm",
+      "title": "key_alarms",
+      "sections": [
+        {
+          "id": "alarm-1",
+          "layout": { "component": "SectionBlock", "props": { "cols": 1 } },
+          "widgets": [
+            {
+              "component": "AlarmsCard",
+              "props": {
+                "titleAlarm": "key_active-alarms",
+                "titleWarn": "key_active-warnings",
+                "emptyMessage": "key_no-active-alarms-warnings",
+                "alarms": [
+                  ["ALARM_VFD1_Fault", "ALARM_VFD1_commLoss"],
+                  ["ALARM_VFD2_Fault", "ALARM_VFD2_commLoss"],
+                  ["ALARM_VFD3_Fault", "ALARM_VFD3_commLoss"],
+                  ["ALARM_ESTOP1"],
+                  ["ALARM_airPressure1"],
+                  [{"tagId":"ALARM_Server1_commLoss","label":"key_alarm_plc1_commloss"}],
+                  ["ALARM_DI1_commLoss"],
+                  ["ALARM_DO1_commLoss"],
+                  ["ALARM_R1_Error","ALARM_R1_commLoss"],
+                  ["ALARM_R1_remoteDisabled","ALARM_R1_commLoss"],
+                  ["ALARM_R1_productDropped"],
+                  ["ALARM_R1_safeDrop"],
+                  ["ALARM_R1_failedPick"],
+                  ["ALARM_R1_stepEnabled"],
+                  ["WARNING_R1_safespeed"],
+                  ["ALARM_CSR1_Error","ALARM_CSR1_commLoss"],
+                  [{"tagId":"ALARM_Feedpoint1_queueFault", "label":"key_alarm_feedpoint1_queuefault"}, {"tagId":"ALARM_Feedpoint2_queueFault", "label":"key_alarm_feedpoint2_queuefault"}, "ALARM_Feedpoints_queueFault"],
+                  ["ALARM_Feedpoint1_queueFault","ALARM_Feedpoints_queueFault"],
+                  ["WARNING_Module1_manualMode"],
+                  ["WARNING_Station1_removeContainer","ALARM_Station1_removeContainer"],
+                  ["WARNING_Station1_containerAbsent","ALARM_Station1_containerAbsent"]
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "indicators",
+      "title": "key_indicator-s",
+      "sections": [
+        {
+          "id": "indicator-1",
+          "layout": { "component": "SectionBlock", "props": { "cols": 1 } },
+          "widgets": [
+            {
+              "component": "GenericCard",
+              "props": {
+                "title": "key_photoeye-s",
+                "fields": [
+                    [{"label":"key_product-at-pickup1","tagId":"TOHMI_PE1"},{"label":"key_product-at-pickup2","tagId":"TOHMI_PE2"},{"label":"key_pallet-at-station","tagId":"TOHMI_PE3"}],
+                    [{"span":2,"tagId":"TOHMI_Station1_totalProducts"},"TOHMI_PE6"],
+                    ["TOHMI_PE7","TOHMI_PE9","TOHMI_PE9"]
+                ],
+                "alarms": []
+              }
+              },
+            {
+              "component": "GenericCard",
+              "props": {
+                "title": "key_eoat-solenoids",
+                "fields": [
+                    [{"label":"key_eoat-vacuum-zone1","tagId":"TOHMI_R1_EOAT_vacZone1"},{"label":"key_eoat-vacuum-zone2","tagId":"TOHMI_R1_EOAT_vacZone2"},{"label":"key_eoat-vacuum-zone3","tagId":"TOHMI_R1_EOAT_vacZone3"}]
+                ],
+                "alarms": []
+              }
+              }
+          ]
+            }
+          ]
+        },
+        {
+          "id": "vfd",
+          "title": "key_conveyor-s",
+          "sections": [
+            {
+              "id": "vfd-1",
+              "layout": { "component": "SectionBlock", "props": { "cols": 1 } },
+              "widgets": [
+                {
+                  "component": "GenericCard",
+                  "props": {
+                    "title": "key_vfd1",
+                    "fields": [
+                        ["TOHMI_VFD1_Start","TOHMI_VFD1_Fwd"],
+                        ["TOHMI_VFD1_Volt","TOHMI_VFD1_Amp"],
+                        ["TOHMI_VFD1_Freq","TOHMI_VFD1_Timer"]
+                    ],
+                    "alarms": ["ALARM_VFD1_Fault", "ALARM_VFD1_commLoss"]
+                }
+            },
+            {
+                  "component": "GenericCard",
+                  "props": {
+              "title": "key_vfd2",
+                    "fields": [
+                        ["TOHMI_VFD2_Start","TOHMI_VFD2_Fwd"],
+                        ["TOHMI_VFD2_Volt","TOHMI_VFD2_Amp"],
+                        ["TOHMI_VFD2_Freq","TOHMI_VFD2_Timer"]
+                    ],
+                    "alarms": ["ALARM_VFD2_Fault", "ALARM_VFD2_commLoss"]
+                  }
+                },
+                {
+                  "component": "GenericCard",
+                  "props": {
+                    "title": "key_vfd3",
+                    "fields": [
+                        ["TOHMI_VFD3_Start","TOHMI_VFD3_Fwd"],
+                        ["TOHMI_VFD3_Volt","TOHMI_VFD3_Amp"],
+                        ["TOHMI_VFD3_Freq","TOHMI_VFD3_Timer"]
+                    ],
+                    "alarms": ["ALARM_VFD3_Fault", "ALARM_VFD3_commLoss"]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+     
+  ]
+}
